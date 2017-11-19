@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OgmoVersion>2.1.0.6</OgmoVersion>
-  <Name>level1</Name>
+  <Name>tilemap</Name>
   <BackgroundColor A="255" R="125" G="160" B="255" />
   <GridColor A="255" R="255" G="240" B="90" />
   <LevelDefaultSize>
-    <Width>480</Width>
-    <Height>14000</Height>
+    <Width>3200</Width>
+    <Height>480</Height>
   </LevelDefaultSize>
   <LevelMinimumSize>
-    <Width>480</Width>
-    <Height>13000</Height>
+    <Width>3200</Width>
+    <Height>480</Height>
   </LevelMinimumSize>
   <LevelMaximumSize>
-    <Width>480</Width>
-    <Height>18000</Height>
+    <Width>6400</Width>
+    <Height>480</Height>
   </LevelMaximumSize>
-  <Filename>K:\Desarrollo de Videojuegos 1\Proyectos\1HP\assets\data\level.oep</Filename>
+  <Filename>K:\Desarrollo de Videojuegos 1\Proyectos\1HP-Proyect\assets\data\level.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -26,11 +26,23 @@
   <ExportCameraPosition>false</ExportCameraPosition>
   <LevelValueDefinitions />
   <LayerDefinitions>
-    <LayerDefinition xsi:type="GridLayerDefinition">
-      <Name>NewLayer0</Name>
+    <LayerDefinition xsi:type="TileLayerDefinition">
+      <Name>map</Name>
       <Grid>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>32</Width>
+        <Height>32</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+      <ExportMode>CSV</ExportMode>
+    </LayerDefinition>
+    <LayerDefinition xsi:type="GridLayerDefinition">
+      <Name>grid</Name>
+      <Grid>
+        <Width>32</Width>
+        <Height>32</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -40,6 +52,16 @@
       <ExportMode>Bitstring</ExportMode>
     </LayerDefinition>
   </LayerDefinitions>
-  <Tilesets />
+  <Tilesets>
+    <Tileset>
+      <Name>tileset</Name>
+      <FilePath>..\images\tiles.png</FilePath>
+      <TileSize>
+        <Width>32</Width>
+        <Height>32</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+  </Tilesets>
   <EntityDefinitions />
 </project>
