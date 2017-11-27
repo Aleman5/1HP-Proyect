@@ -37,6 +37,7 @@ class ThisIsAFlag extends FlxSprite
 		setFacingFlip(FlxObject.LEFT, false, false);
 		
 		loadGraphic(AssetPaths.flags__png, true, 15, 22);
+		width = 4;
 		animation.add("p1", [0]);
 		animation.add("p2", [1]);
 		if		(defenderPlayer.whichPlayer == 1) 	animation.play("p1");
@@ -56,6 +57,7 @@ class ThisIsAFlag extends FlxSprite
 					y = oY;
 				if (x != oX)
 					x = oX;
+				velocity.x = 0;
 				if (facing != FlxObject.RIGHT)
 					facing = FlxObject.RIGHT;
 				if (FlxG.collide(this, attackerPlayer))
@@ -82,9 +84,10 @@ class ThisIsAFlag extends FlxSprite
 			case FlagStates.ONFLOOR:
 				if (y != oY)
 					y = oY;
-				if (FlxG.collide(this, attackerPlayer))
+				velocity.x = 0;
+				if (attackerPlayer.currentState != States.DIE && FlxG.collide(this, attackerPlayer))
 					currentFlagState = FlagStates.STOLED;
-				if (FlxG.collide(this, defenderPlayer))
+				if (defenderPlayer.currentState != States.DIE && FlxG.collide(this, defenderPlayer))
 					currentFlagState = FlagStates.IDLE;
 		}
 	}
