@@ -19,11 +19,14 @@ class WeaponThings extends FlxSprite
 		loadGraphic(AssetPaths.weaponPlayer1__png, true, 24, 3);
 		scale.set(2, 2);
 		updateHitbox();
+		height = 1;
+		offset.y += 1;
 		player = _player;
 		
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 		animation.add("idle", [0, 1, 0, 1], 4);
+		animation.add("death", [0]);
 		animation.add("attacking", [2, 3, 3, 2], 8, false);
 		animation.play("idle");
 	}
@@ -35,30 +38,48 @@ class WeaponThings extends FlxSprite
 			animation.play("attacking");
 		else
 			animation.play("idle");
-			
-		if (animation.name == "idle")
-			switch (animation.curAnim.curFrame) 
-			{
-				case 1:
-					y += 1;
-				case 2:
-					y += 2;
-			}
+		
+		width = 30;
+		switch (animation.curAnim.curIndex) 
+		{
+			case 0:
+				y += 1;
+			case 1:
+				y += 2;
+			case 2:
+				/*if (facing == FlxObject.RIGHT)
+					offset.x += 9;
+				else
+					offset.x -= 9;*/
+				width += 9;
+				
+				//x -= 9;
+			case 3:
+				/*if (facing == FlxObject.RIGHT)
+					offset.x += 18;
+				else
+					offset.x -= 18;*/
+				width += 18;
+		}
 	}
 	function position() 
 	{
-		facing = player.facing;
-		if (facing == FlxObject.RIGHT)
+		if (player.animation.name != "die")
 		{
-			x = player.x + player.width * 3 / 5;
+			facing = player.facing;
 			y = player.y + player.height * 2 / 5;
+			if (facing == FlxObject.RIGHT)
+				x = player.x + player.width;
+			else
+				x = player.x - width - 18;
+			
+			DwOrUp();
 		}
 		else
 		{
-			x = player.x + player.width * 3 / 5 - width;
-			y = player.y + player.height * 2 / 5;
+			animation.play("death");
+			acceleration.y = 250;
 		}
-		DwOrUp();
 	}
 	function DwOrUp() 
 	{

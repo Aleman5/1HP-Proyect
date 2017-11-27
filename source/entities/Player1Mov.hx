@@ -25,12 +25,34 @@ class Player1Mov extends PlayerThings
 		if (FlxG.keys.pressed.D)
 		{
 			facing = FlxObject.RIGHT;
-			velocity.x = 130;
+			if (!isChasing)
+			{
+				if (trails.alive)
+					trails.kill();
+				velocity.x = speed;
+			}
+			else
+			{
+				if (!trails.alive)
+					trails.reset(x, y);
+				velocity.x = speedChasing;
+			}
 		}
 		else if (FlxG.keys.pressed.A)
 		{
 			facing = FlxObject.LEFT;
-			velocity.x = -130;
+			if (!isChasing)
+			{
+				if (trails.alive)
+					trails.kill();
+				velocity.x = -speed;
+			}
+			else
+			{
+				if (!trails.alive)
+					trails.reset(x, y);
+				velocity.x = -speedChasing;
+			}
 		}
 	}
 	override function jumping() 
