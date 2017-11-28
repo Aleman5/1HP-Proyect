@@ -59,8 +59,8 @@ class PlayState extends FlxState
 		players.add(player2);
 		weapon1 = new Weapon1(player1.x + player1.width / 2, player1.y + 6, player1);
 		weapon2 = new Weapon2(player2.x + player2.width / 2, player2.y + 6, player2);
-		flag1 = new ThisIsAFlag(32, camera.height - 118, player1, player2);
-		flag2 = new ThisIsAFlag(camera.width - 47, camera.height - 118, player2, player1);
+		flag1 = new ThisIsAFlag(320, camera.height - 118, player1, player2);
+		flag2 = new ThisIsAFlag(FlxG.worldBounds.width - 320, camera.height - 118, player2, player1);
 		add(flag1);
 		add(flag2);
 		add(players);
@@ -77,9 +77,33 @@ class PlayState extends FlxState
 	{
 		if(!paused)
 			super.update(elapsed);
+		checkFlag();
 		checkChasing();
 		collisions();
 		resetAndPause();
+	}
+	function checkFlag() 
+	{
+		if (!player1.get_theFlag())
+		{
+			if (player1.currentState != States.DIE && FlxG.collide(player1, flag2))
+				player1.set_theFlag();
+		}
+		else if (player1.x < 96)
+		{
+			paused = !paused;
+			trace("Blueman Wins");
+		}
+		if (!player2.get_theFlag())
+		{
+			if (player2.currentState != States.DIE && FlxG.collide(player2, flag1))
+				player2.set_theFlag();
+		}
+		else if (player2.x > FlxG.worldBounds.width - 96)
+		{
+			paused = !paused;
+			trace("Orangeman Wins");
+		}
 	}
 	function checkChasing() 
 	{
@@ -174,7 +198,11 @@ Do the Titlescreren --> DONE
 
 Use FlxTween and FlxEase with the title --> STAND BY
 
-Make a CTF (Capture the Flag). Just to make an smaller Map --> DOING
+Make a CTF (Capture the Flag). Just to make an smaller Map --> DONE
+
+Make an SprintAttack --> DONE
+
+Use Particle Emitters when swords collide --> DOING
 
 Add the sounds --> WAITING
 */

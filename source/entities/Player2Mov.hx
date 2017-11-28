@@ -68,4 +68,33 @@ class Player2Mov extends PlayerThings
 		if (FlxG.keys.justPressed.NUMPADTWO)
 			currentState = States.ATTACK;
 	}
+	override function sprintAttacking() 
+	{
+		if (FlxG.keys.justPressed.NUMPADTHREE)
+		{
+			if (currentState == States.JUMP)
+				animation.play("goingdownsprintattack");
+			else
+				animation.play("presprintattack");
+			currentState = States.SPRINTATTACK;
+			if (facing == FlxObject.RIGHT)
+			{
+				if (isChasing)
+					velocity.x = 400;
+				else
+					velocity.x = 350;
+			}
+			else
+			{
+				if (isChasing)
+					velocity.x = -400;
+				else
+					velocity.x = -350;
+			}
+		}
+	}
+	override function plsRevive()
+	{
+		reset(x + 100, y - 200);
+	}
 }

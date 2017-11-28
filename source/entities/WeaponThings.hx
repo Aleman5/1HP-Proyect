@@ -28,6 +28,7 @@ class WeaponThings extends FlxSprite
 		animation.add("idle", [0, 1, 0, 1], 4);
 		animation.add("death", [0]);
 		animation.add("attacking", [2, 3, 3, 2], 8, false);
+		animation.add("sprintattacking", [2, 3], 8, false);
 		animation.play("idle");
 	}
 	override public function update(elapsed:Float):Void 
@@ -36,6 +37,8 @@ class WeaponThings extends FlxSprite
 		position();
 		if (player.animation.name == "attack")
 			animation.play("attacking");
+		else if (player.animation.name == "sprintattack")
+			animation.play("sprintattacking");
 		else
 			animation.play("idle");
 		

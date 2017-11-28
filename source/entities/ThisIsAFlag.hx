@@ -59,8 +59,11 @@ class ThisIsAFlag extends FlxSprite
 					x = oX;
 				velocity.x = 0;
 				if (facing != FlxObject.RIGHT)
+				{
+					offset.x = 11;
 					facing = FlxObject.RIGHT;
-				if (FlxG.collide(this, attackerPlayer))
+				}
+				if (attackerPlayer.get_theFlag())
 				{
 					grabed = true;
 					currentFlagState = FlagStates.STOLED;
@@ -70,22 +73,27 @@ class ThisIsAFlag extends FlxSprite
 				facing = attackerPlayer.facing;
 				if (facing == FlxObject.RIGHT)
 				{
-					x = attackerPlayer.x - 3;
+					x = attackerPlayer.x - 2;
 					y = attackerPlayer.y - 3;
+					offset.x = 11;
 				}
 				else
 				{
-					x = attackerPlayer.x + attackerPlayer.width - 1;
+					x = attackerPlayer.x + attackerPlayer.width - 2;
 					y = attackerPlayer.y - 3;
+					offset.x = 0;
 				}
 				if (attackerPlayer.currentState == States.DIE)
+				{
+					attackerPlayer.set_theFlag(false);
 					currentFlagState = FlagStates.ONFLOOR;
+				}
 				
 			case FlagStates.ONFLOOR:
 				if (y != oY)
 					y = oY;
 				velocity.x = 0;
-				if (attackerPlayer.currentState != States.DIE && FlxG.collide(this, attackerPlayer))
+				if (attackerPlayer.get_theFlag())
 					currentFlagState = FlagStates.STOLED;
 				if (defenderPlayer.currentState != States.DIE && FlxG.collide(this, defenderPlayer))
 					currentFlagState = FlagStates.IDLE;
