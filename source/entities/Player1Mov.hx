@@ -13,7 +13,6 @@ class Player1Mov extends PlayerThings
 	public function new(?X:Float=0, ?Y:Float=0, _whichPlayer:Int) 
 	{
 		super(X, Y, _whichPlayer);
-		
 	}
 	override function moving() 
 	{
@@ -92,9 +91,5 @@ class Player1Mov extends PlayerThings
 					velocity.x = -350;
 			}
 		}
-	}
-	override function plsRevive()
-	{
-		reset(x - 100, y - 200);
 	}
 }

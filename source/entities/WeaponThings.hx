@@ -12,17 +12,21 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 class WeaponThings extends FlxSprite 
 {
 	private var player:PlayerThings;
+	private var howMuchInX:Float;
 
 	public function new(?X:Float=0, ?Y:Float=0, _player:PlayerThings) 
 	{
 		super(X, Y);
-		loadGraphic(AssetPaths.weaponPlayer1__png, true, 24, 3);
+		player = _player;
+		if(player.whichPlayer == 1)
+			loadGraphic(AssetPaths.weaponPlayer1__png, true, 24, 3);
+		else
+			loadGraphic(AssetPaths.weaponPlayer2__png, true, 24, 3);
 		scale.set(2, 2);
 		updateHitbox();
 		height = 1;
-		offset.y += 1;
-		player = _player;
-		
+		offset.y += 2;
+		howMuchInX = offset.x;
 		setFacingFlip(FlxObject.RIGHT, false, false);
 		setFacingFlip(FlxObject.LEFT, true, false);
 		animation.add("idle", [0, 1, 0, 1], 4);
@@ -43,25 +47,24 @@ class WeaponThings extends FlxSprite
 			animation.play("idle");
 		
 		width = 30;
+		offset.x = howMuchInX;
 		switch (animation.curAnim.curIndex) 
 		{
 			case 0:
 				y += 1;
+				if (facing == FlxObject.LEFT)
+					offset.x = 6;
 			case 1:
 				y += 2;
+				if (facing == FlxObject.LEFT)
+					offset.x = 6;
 			case 2:
-				/*if (facing == FlxObject.RIGHT)
-					offset.x += 9;
-				else
-					offset.x -= 9;*/
+				if (facing == FlxObject.LEFT)
+					offset.x = -3;
 				width += 9;
-				
-				//x -= 9;
 			case 3:
-				/*if (facing == FlxObject.RIGHT)
-					offset.x += 18;
-				else
-					offset.x -= 18;*/
+				if (facing == FlxObject.LEFT)
+					offset.x = -12;
 				width += 18;
 		}
 	}
@@ -74,7 +77,7 @@ class WeaponThings extends FlxSprite
 			if (facing == FlxObject.RIGHT)
 				x = player.x + player.width;
 			else
-				x = player.x - width - 18;
+				x = player.x - width;
 			
 			DwOrUp();
 		}

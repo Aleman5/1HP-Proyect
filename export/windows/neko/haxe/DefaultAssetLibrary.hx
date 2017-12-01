@@ -70,6 +70,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -79,6 +89,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -606,6 +626,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -631,14 +661,34 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/backGround.png", AssetType.IMAGE);
 		path.set ("assets/images/weaponPlayer1.png", "assets/images/weaponPlayer1.png");
 		type.set ("assets/images/weaponPlayer1.png", AssetType.IMAGE);
-		path.set ("assets/images/title.png", "assets/images/title.png");
-		type.set ("assets/images/title.png", AssetType.IMAGE);
 		path.set ("assets/images/flags.png", "assets/images/flags.png");
 		type.set ("assets/images/flags.png", AssetType.IMAGE);
+		path.set ("assets/images/player2.png", "assets/images/player2.png");
+		type.set ("assets/images/player2.png", AssetType.IMAGE);
+		path.set ("assets/images/weaponPlayer2.png", "assets/images/weaponPlayer2.png");
+		type.set ("assets/images/weaponPlayer2.png", AssetType.IMAGE);
+		path.set ("assets/images/title.png", "assets/images/title.png");
+		type.set ("assets/images/title.png", AssetType.IMAGE);
+		path.set ("assets/images/orangemanWins.png", "assets/images/orangemanWins.png");
+		type.set ("assets/images/orangemanWins.png", AssetType.IMAGE);
+		path.set ("assets/images/bluemanWins.png", "assets/images/bluemanWins.png");
+		type.set ("assets/images/bluemanWins.png", AssetType.IMAGE);
+		path.set ("assets/images/orangemanGo.png", "assets/images/orangemanGo.png");
+		type.set ("assets/images/orangemanGo.png", AssetType.IMAGE);
+		path.set ("assets/images/bluemanGo.png", "assets/images/bluemanGo.png");
+		type.set ("assets/images/bluemanGo.png", AssetType.IMAGE);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
 		type.set ("assets/sounds/sounds-go-here.txt", AssetType.TEXT);
+		path.set ("assets/sounds/colEspadas.ogg", "assets/sounds/colEspadas.ogg");
+		type.set ("assets/sounds/colEspadas.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/missHit.ogg", "assets/sounds/missHit.ogg");
+		type.set ("assets/sounds/missHit.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/death.ogg", "assets/sounds/death.ogg");
+		type.set ("assets/sounds/death.ogg", AssetType.SOUND);
+		path.set ("assets/sounds/theme.wav", "assets/sounds/theme.wav");
+		type.set ("assets/sounds/theme.wav", AssetType.SOUND);
 		className.set ("flixel/sounds/beep.ogg", __ASSET__flixel_sounds_beep_ogg);
 		type.set ("flixel/sounds/beep.ogg", AssetType.SOUND);
 		className.set ("flixel/sounds/flixel.ogg", __ASSET__flixel_sounds_flixel_ogg);
@@ -680,10 +730,28 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/images/weaponPlayer1.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/flags.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/player2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/weaponPlayer2.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/title.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
-		id = "assets/images/flags.png";
+		id = "assets/images/orangemanWins.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/bluemanWins.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/orangemanGo.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/bluemanGo.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/music/music-goes-here.txt";
@@ -692,6 +760,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/sounds/sounds-go-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/colEspadas.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/missHit.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/death.ogg";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/theme.wav";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
 		id = "flixel/sounds/beep.ogg";
 		path.set (id, id);
 		
@@ -733,6 +813,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1493,6 +1583,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1502,6 +1602,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
 
 
 
