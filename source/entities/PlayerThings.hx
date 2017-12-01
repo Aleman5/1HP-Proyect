@@ -150,7 +150,7 @@ class PlayerThings extends FlxSprite
 	override public function reset(X:Float, Y:Float):Void 
 	{
 		acceleration.y = 2000;
-		currentState = States.IDLE;
+		currentState = States.JUMP;
 		trails.reset(x, y);
 		trails.kill();
 		super.reset(X, Y);
@@ -159,7 +159,6 @@ class PlayerThings extends FlxSprite
 	function sprintAttacking()  { }
 	function jumping()   		{ }
 	function moving()	 		{ }
-	
 	public function set_trails(value:FlxTrail):FlxTrail 
 	{
 		return trails = value;

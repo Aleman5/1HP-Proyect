@@ -111,7 +111,7 @@ class PlayState extends FlxState
 		sprOrangemanWins = new SomeoneWon(100, 100, 2);
 		orangemanTween = FlxTween.color(sprOrangemanWins, 3, 0xFFEEA000, 0xFFFFA500, {type: FlxTween.PINGPONG});
 		
-		FlxG.sound.playMusic(AssetPaths.theme__wav, 0.03);
+		FlxG.sound.playMusic(AssetPaths.theme__wav, 1.1);
 		
 		cameraMovement();
 		
@@ -388,7 +388,7 @@ class PlayState extends FlxState
 	}
 	function spark(w:WeaponThings) 
 	{
-		FlxG.sound.play(AssetPaths.colEspadas__ogg, 0.05);
+		FlxG.sound.play(AssetPaths.colEspadas__wav);
 		wpsCollEmitter.setPosition(w.x + w.width, w.y);
 		wpsCollEmitter.start(true);
 	}
@@ -404,7 +404,7 @@ class PlayState extends FlxState
 			wpPlaCollEmitter.setPosition(p.x + p.width, w.y);
 			wpPlaCollEmitter.acceleration.set(100, 100, 200, 400);
 		}
-		FlxG.sound.play(AssetPaths.death__ogg, 0.06);
+		FlxG.sound.play(AssetPaths.death__wav);
 		p.set_theFlag(false);
 		wpPlaCollEmitter.start(true);
 	}
@@ -422,7 +422,6 @@ class PlayState extends FlxState
 		}
 	}
 }
-
 /* TO DO:
 
 Finish with Trail things --> DONE
@@ -453,7 +452,7 @@ Add the sounds --> DONE
 Players Die when match starts, the problem is in the Line 259 isOnScreen() --> DONE
 
 If the player who is running left passes over the "camera range", 
-it always survive and the other player (who is on the other side) will die --> TO DO
+it always survive and the other player (who is on the other side) will die --> DONE
 
 Orangeman wins but it doesnt appear the sprite "OrangeMan Wins"			   --> DONE
 

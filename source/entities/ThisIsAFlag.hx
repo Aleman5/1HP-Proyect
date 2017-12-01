@@ -17,8 +17,6 @@ class ThisIsAFlag extends FlxSprite
 	private var currentFlagState:FlagStates;
 	private var defenderPlayer:PlayerThings;
 	private var attackerPlayer:PlayerThings;
-	private var stoled:Bool;
-	private var grabed:Bool;
 	private var oX:Float;
 	private var oY:Float;
 
@@ -28,8 +26,6 @@ class ThisIsAFlag extends FlxSprite
 		currentFlagState = FlagStates.IDLE;
 		defenderPlayer = _player1;
 		attackerPlayer = _player2;
-		stoled = false;
-		grabed = false;
 		oX = X;
 		oY = Y;
 		
@@ -64,10 +60,7 @@ class ThisIsAFlag extends FlxSprite
 					facing = FlxObject.RIGHT;
 				}
 				if (attackerPlayer.get_theFlag())
-				{
-					grabed = true;
 					currentFlagState = FlagStates.STOLED;
-				}
 				
 			case FlagStates.STOLED:
 				facing = attackerPlayer.facing;
